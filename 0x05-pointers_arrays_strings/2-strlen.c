@@ -2,15 +2,16 @@
 
 /**
  * _strlen - Returns the length of a string
- * @str: string.
  *
+ *@s: char to check
  * Return: Length.
  */
 int _strlen(char *s)
 {
+
 	int i = 0;
 
-	while (;*str++;)
+	for (; *s++;)
 		i++;
 
 	return (i);
