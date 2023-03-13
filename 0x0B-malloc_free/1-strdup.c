@@ -25,3 +25,4 @@ char *_strdup(char *str)
 	}
 	c[i] = '\0';
 	return (c);
+}
