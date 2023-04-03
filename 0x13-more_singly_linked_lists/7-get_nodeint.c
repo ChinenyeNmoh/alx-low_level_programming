@@ -13,13 +13,14 @@ listint_t *tmp;
 
 if (head == NULL)
 	return (NULL);
-
+else
+{
 tmp = head;
 while (i < index)
 {
 	tmp = tmp->next;
 	i++;
 }
-
+}
 return (tmp);
 }
