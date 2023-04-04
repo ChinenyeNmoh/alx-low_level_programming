@@ -8,7 +8,7 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t len = 0;
+	size_t size = 0;
 	int diff;
 	listint_t *temp;
 
@@ -23,19 +23,19 @@ size_t free_listint_safe(listint_t **h)
 			temp = (*h)->next;
 			free(*h);
 			*h = temp;
-			len++;
+			size++;
 		}
 		else
 		{
 			free(*h);
 			*h = NULL;
-			len++;
+			size++;
 			break;
 		}
 	}
 
 	*h = NULL;
 
-	return (len);
+	return (size);
 }
 
