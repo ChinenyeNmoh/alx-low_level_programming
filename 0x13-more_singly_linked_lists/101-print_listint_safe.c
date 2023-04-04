@@ -9,7 +9,7 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *current = NULL;
 	const listint_t *prev = NULL;
 	size_t count = 0;
-	size_t i = 0;
+	size_t i;
 
 	current = head;
 	while (current != NULL)
@@ -18,6 +18,8 @@ size_t print_listint_safe(const listint_t *head)
 		count++;
 		current = current->next;
 		prev = head;
+		
+		i = 0;
 		while (i < count)
 		{
 			if (current == prev)
