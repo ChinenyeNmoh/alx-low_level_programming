@@ -23,11 +23,12 @@ unsigned int binary_to_uint(const char *b)
 	}
 	for (i = 0; i < len ; i++)
 	{
-		add <<= 1;
-		if (b[i] == '1')
+		if (b[i] == '0')
+		add <<= power;
+		else if (b[i] == '1')
 		{
+			add <<= power;
 			add += power;
-		continue;
 		}
 	}
 	return (add);
