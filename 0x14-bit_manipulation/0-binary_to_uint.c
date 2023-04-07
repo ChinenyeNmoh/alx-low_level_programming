@@ -10,19 +10,17 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int add = 0, power = 1;
-	int i, len = 0;
+	int i;
 
-	while (b[len] != '\0')
-		len++;
 	if (b == NULL)
 		return (0);
 
-	for (i = 0; i < len; i++)
+	for (i = 0; b[i] != '\0'; i++)
 	{
 		if (b[i] != '1' && b[i] != '0')
 			return (0);
 	}
-	for (i = 0; i < len ; i++)
+	for (i = 0; b[i] != '\0' ; i++)
 	{
 		add <<= power;
 		if (b[i] & power)
