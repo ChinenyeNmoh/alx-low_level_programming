@@ -26,6 +26,7 @@ unsigned int binary_to_uint(const char *b)
 		add <<= 1;
 		if (b[i] == '1')
 			add += power;
+		continue;
 	}
 	return (add);
 }
