@@ -23,14 +23,9 @@ unsigned int binary_to_uint(const char *b)
 	}
 	for (i = 0; i < len ; i++)
 	{
-		if (b[i] == '0')
-		add <<= 1;
-		else if (b[i] == '1')
-		{
-			add <<= 1;
-			add += 1;
-		}
-		power <<= 1;
+		add <<= power;
+		if (b[i] == '1')
+			add += power;
 	}
 	return (add);
 }
