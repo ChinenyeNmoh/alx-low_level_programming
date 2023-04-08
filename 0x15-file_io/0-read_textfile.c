@@ -30,17 +30,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	retr = read(fd, buf, letters);
-	close(fd);
-	if (retr == -1)
-	{
-		free(buf);
-		return (0);
-	}
-
 	retw = write(STDOUT_FILENO, buf, retr);
-	free(buf);
-	if (retw != retr)
+
+	if (retr == -1 || retw == -1 || retw != retr)
 		return (0);
+	close(fd);
+	free(buf);
 
 	return (retw);
 }
