@@ -39,7 +39,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	retw = write(STDOUT_FILENO, buf, retr);
 	free(buf);
-	if (retw != retr || retw == -1)
+	if (retw != retr)
 		return (0);
 
 	return (retw);
