@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	int file_from, file_to, retr = 1024, retw, closure;
 	char buf[1024];
 
-	if (argc < 3)
+	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
