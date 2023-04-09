@@ -1,9 +1,10 @@
 #include "main.h"
- /*
- *  main - entry point.
- * @argc: number of arguments
- * @argv: char pointer.
- * Return: Always 0.
+/**
+ * main - copies the content of one file to another
+ * @argc: argument count
+ * @argv: arguments passed
+ *
+ * Return: 1 on success, exit otherwise
  */
 int main(int argc, char *argv[])
 {
