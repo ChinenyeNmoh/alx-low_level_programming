@@ -13,16 +13,23 @@ int is_palindrome(int n)
 
 	return (reversed == original);
 }
-
-int main() 
+/**
+ * main - Entry point
+ *
+ * @argc: arguments count
+ * @argv: arguments vector
+ * Return: Always 0
+ */
+int main(void)
 {
 	int largest = 0;
-	
+
 	for (int i = 100; i < 1000; i++)
 	{
 		for (int j = i; j < 1000; j++)
 		{
 			int product = i * j;
+
 			if (is_palindrome(product) && product > largest)
 			{
 				largest = product;
@@ -30,6 +37,7 @@ int main()
 		}
 	}
 	FILE *file = fopen("102-result", "w");
+
 	if (file != NULL)
 	{
 		fprintf(file, "%d", largest);
