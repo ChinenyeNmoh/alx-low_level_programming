@@ -1,49 +1,81 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+/**
+ * f4 - finds the biggest number
+ *
+ * @username: username
+ * @length: length of username
+ * Return: the biggest number
+ */
 
 int f4(char *username, int length)
 {
-	int max_num;
-	int current_num;
-	unsigned int rand_num;
+	int max_val;
+	int val;
+	unsigned int random_num;
 
-	max_num = *username;
+	max_val = *username;
+	val = 0;
 
-	for (int i = 0; i < length; i++) {
-		current_num = username[i];
-		if (current_num > max_num)
-			max_num = current_num;
+	while (val < length)
+	{
+		if (max_val < username[val])
+			max_val = username[val];
+		val += 1;
 	}
 
-	srand(max_num ^ 14);
-	rand_num = rand();
+	srand(max_val ^ 14);
+	random_num = rand();
 
-	return (rand_num & 63);
+	return (random_num & 63);
 }
-
+/**
+ * f5 - multiplies each char of username
+ *
+ * @username: username
+ * @length: length of username
+ * Return: multiplied char
+ */
 int f5(char *username, int length)
 {
-	int multiplied_char = 0;
+	int multiplied_val = 0;
+	int val = 0;
 
-	for (int i = 0; i < length; i++) {
-		multiplied_char += username[i] * username[i];
+	while (val < length)
+	{
+		multiplied_val = multiplied_val + username[val] * username[val];
+		val += 1;
 	}
 
-	return (((unsigned int)multiplied_char ^ 239) & 63);
+	return (((unsigned int)multiplied_val ^ 239) & 63);
 }
-
+/**
+ * f6 - generates a random char
+ *
+ * @username: username
+ * Return: a random char
+ */
 int f6(char *username)
 {
-	int random_char = 0;
+	int random_val = 0;
+	int val = 0;
 
-	for (int i = 0; i < *username; i++) {
-		random_char = rand();
+	while (val < *username)
+	{
+		random_val = rand();
+		val += 1;
 	}
 
-	return (((unsigned int)random_char ^ 229) & 63);
+	return (((unsigned int)random_val ^ 229) & 63);
 }
-
+/**
+ * main - Entry point
+ *
+ * @argc: arguments count
+ * @argv: arguments vector
+ * Return: Always 0
+ */
 int main(int argc, char **argv)
 {
 	char keygen[7];
@@ -73,7 +105,7 @@ int main(int argc, char **argv)
 	vch = 0;
 	while (vch < length)
 	{
-		ch *= argv[1][vch];
+		ch = argv[1][vch] * ch;
 		vch++;
 	}
 	keygen[2] = ((char *)alph)[(ch ^ 85) & 63];
